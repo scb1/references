@@ -236,8 +236,7 @@ sites = [
   {
     "cat": "ressource",
     "sub_cat": "code",
-    "desc": "CodePen est un environnement social pour les designers et les développeurs front-end. 👋
-    C'est le meilleur endroit  pour créer et déployer un site Web, présenter son travail, créer des cas et trouver l'inspiration.",
+    "desc": "CodePen est un environnement social pour les designers et les développeurs front-end. 👋 C'est le meilleur endroit  pour créer et déployer un site Web, présenter son travail, créer des cas et trouver l'inspiration.",
     "link":"https://codepen.io",
     "text": "Codepen"
   }
