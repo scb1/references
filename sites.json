@@ -13,28 +13,12 @@ sites = [
   },
   {
     "cat": "doc",
-    "sub_cat": "git",
-    "desc": "Document pdf listant les principales commandes Git/GitHub. https://services.github.com/on-demand/downloads/fr/github-git-cheat-sheet.pdf",
-    "link":"doc/github-git-cheat-sheet.pdf",
-    "text": "Git GitHub Aide-mémoire"
-  },
-  {
-    "cat": "doc",
-    "sub_cat": "git",
-    "desc": "juste un petit guide pour bien démarrer avec git.",
-    "link":"http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf",
-    "text": "Git - petit guide"
-  },
-  {
-    "cat": "doc",
-    "sub_cat": "css",
     "desc": "A free visual guide to CSS",
     "link":"https://cssreference.io/",
     "text": "Référence CSS"
   },
   {
     "cat": "doc",
-    "sub_cat": "html",
     "desc": "A free guide to HTML",
     "link":"https://htmlreference.io/",
     "text": "Référence HTML"
@@ -146,6 +130,13 @@ sites = [
   },
   {
     "cat": "ressource",
+    "sub_cat": "image",
+    "desc": "Site permettant d'optimiser une image",
+    "link":"http://www.imageoptimizer.net",
+    "text": "Image Optimizer"
+  },
+  {
+    "cat": "ressource",
     "sub_cat": "video",
     "desc": "beautiful, free videos for your homepage (multiple formats !!!!)",
     "link":"http://www.coverr.co/",
@@ -227,5 +218,27 @@ sites = [
     "desc": "All fonts are released under open source licenses. You can use them in any non-commercial or commercial project. With so many unique fonts to use, you're bound to find something you like!",
     "link":"https://fonts.google.com/",
     "text": "Google Fonts"
+  },
+  {
+    "cat": "ressource",
+    "sub_cat": "code",
+    "desc": "Désobfusque un code JavaScript, HTML, XML, CSS et PHP.",
+    "link":"https://ctrlq.org/beautifier/",
+    "text": "Source Code Beautifier"
+  },
+  {
+    "cat": "ressource",
+    "sub_cat": "code",
+    "desc": "Executeur de code en ligne telles que: JavaScript, HTML, CSS, PHP, Nodejs, ES6, etc...",
+    "link":"https://repl.it/languages",
+    "text": "repl it"
+  },
+  {
+    "cat": "ressource",
+    "sub_cat": "code",
+    "desc": "CodePen est un environnement social pour les designers et les développeurs front-end. 👋
+    C'est le meilleur endroit  pour créer et déployer un site Web, présenter son travail, créer des cas et trouver l'inspiration.",
+    "link":"https://codepen.io",
+    "text": "Codepen"
   }
 ]

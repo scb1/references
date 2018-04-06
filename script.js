@@ -18,7 +18,7 @@ var cardGenerator = function(site){
   // Remove tokens not replaced
   card.innerHTML = template.replace(/\$\{(.*)\}/gi, '');
   // Add sub_category class if exist
-  card.querySelector('.card-wrapper').className += site['sub_cat'] ? " card-"+site['cat']+"-"+site['sub_cat'] : "";
+  card.className += site['sub_cat'] ? " card-"+site['cat']+"-"+site['sub_cat'] : "";
   return(card);
 };
 // Sort list
@@ -44,3 +44,96 @@ for(var i = 0, sitesLength = sites.length; i < sitesLength; i++){
   }
   section.appendChild(cardGenerator(sites[i]));
 };
+
+/*
+* ProgressBar
+*/
+ScbProgressBar = function(elmt){
+  if(elmt == document){
+    this.elmt = document.querySelector('body');
+  }else{
+    this.elmt = document.querySelector(elmt);
+  }
+  this.elmt.style.position = this.elmt.style.position ? this.elmt.style.position : "relative";
+  this.elmtChild = this.elmt.children[0];
+  this.elmtHeight;
+  this.elmtWidth;
+  this.elmtChildHeight;
+  this.scrollPercent;
+  var self = this;
+
+  /*
+  * Create progressBar and add it as element first child
+  */
+  var pbWrapper = document.createElement("div");
+  pbWrapper.classList.add("scb_hrtop");
+  var progressBar = document.createElement("div");
+  progressBar.classList.add("progress");
+  pbWrapper.appendChild(progressBar);
+  this.elmt.insertBefore(pbWrapper, this.elmtChild);
+  this.progressBar = this.elmt.querySelector(".progress");
+
+  /*
+  * Set element height
+  */
+  this.setElmtHeight = function(){
+    // console.log('calcElmtHeight');
+    if(elmt == document){
+      // var body = document.body,
+      var html = document.documentElement;
+      //     height = Math.max( body.scrollHeight, body.offsetHeight,
+      //       html.clientHeight, html.scrollHeight, html.offsetHeight);
+      // self.elmtHeight = height;
+      self.elmtHeight = html.clientHeight;
+    }else{
+      self.elmtHeight = self.elmt.getBoundingClientRect().height;
+    }
+  };
+  /*
+  * Set element width
+  */
+  this.setElmtWidth = function(){
+    self.elmtWidth = self.elmt.getBoundingClientRect().width;
+    console.log(self.elmt);
+    console.log(self.elmt.getBoundingClientRect());
+    console.log(self.elmt.offsetWidth);
+    console.log("width: "+self.elmtWidth);
+  };
+  /*
+  * Set element child height
+  */
+  this.setElmtChildHeight = function(){
+    self.elmtChildHeight = self.elmtChild.getBoundingClientRect().height;
+    console.log(self.elmtChildHeight);
+  };
+
+  this.scrollPosition = function(){
+    var s = -self.elmtChild.getBoundingClientRect().y,
+        d =  self.elmtChildHeight - self.elmtHeight;
+        self.scrollPercent = Math.round((s / d)*100);
+    var w = Math.round(self.elmtWidth * (self.scrollPercent/100));
+    self.progressBar.style.width = w+'px';
+  };
+
+  /*
+  * Set values
+  */
+  this.setValues = function(){
+    self.setElmtHeight();
+    self.setElmtWidth();
+    self.setElmtChildHeight();
+    self.scrollPosition();
+  };
+
+  /* init */
+  this.setValues();
+  this.elmt.onscroll = this.scrollPosition;
+  this.elmt.onresize = this.setValues();
+}
+
+
+document.addEventListener('DOMContentLoaded', init(), false);
+function init(){
+  var documentProgress = new ScbProgressBar(document);
+  var documentProgress2 = new ScbProgressBar('.wrap');
+}
